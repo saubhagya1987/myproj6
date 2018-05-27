@@ -1,0 +1,42 @@
+<HTML>
+<BODY>
+#if($action=='submit')
+Dear $approver.fullName,<br/><br/>
+	Register receive info card approval notice from $requester.fullName<br/>
+	Please click link to view: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Thanks & best regards
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Please don't reply this email.
+#elseif($action=='approve')
+Dear $requester.fullName,<br/><br/>
+	Register receive info card approved notice from $approver.fullName<br/>
+	Please click link to view: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Thanks & best regards
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Please don't reply this email.
+#elseif($action=='reject')
+Dear $requester.fullName,<br/><br/>
+	Register receive info card return notice from $approver.fullName<br/>
+	Please click link to view: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Thanks & best regards
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Please don't reply this email.   
+#end
+</BODY>
+</HTML>
+

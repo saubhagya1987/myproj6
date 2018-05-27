@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="master_data.masterdataDetail.edit" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/masterdataDetail/MasterdataDetailEdit.jsp" />
+  </definition>
+  <definition name="system.masterdataDetail.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/masterdataDetail/MasterdataDetailList.jsp" />
+  </definition>
+  <definition name="master_data.hobby.addHobby" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/master_data/hobby/HobbyEdit.jsp" />
+    
+    
+  </definition>
+</tiles-definitions>

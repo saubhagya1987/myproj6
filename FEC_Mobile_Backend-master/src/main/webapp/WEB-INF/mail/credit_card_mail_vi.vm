@@ -1,0 +1,16 @@
+<HTML>
+<BODY>
+
+Dear $approver.fullName,<br/><br/>
+	Bạn có người dùng đang đợi liên hệ để tư vấn <br/>
+	Vui lòng vào đường dẫn sau để xem chi tiết: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Cảm ơn và trân trọng
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Vui lòng không trả trả lời mail này.     
+</BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<HTML>
+<BODY>
+#if($action=='submit')
+Dear $approver.fullName,<br/><br/>
+	Chi tiết thẻ (Rút gọn) có thông báo duyệt từ $requester.fullName<br/>
+	Vui lòng vào đường dẫn sau để xem chi tiết: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Cảm ơn và trân trọng
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Vui lòng không trả trả lời mail này.  
+#elseif($action=='approve')
+Dear $requester.fullName,<br/><br/>
+	Chi tiết thẻ (Rút gọn) có thông báo đã được duyệt $approver.fullName<br/>
+	Vui lòng vào đường dẫn sau để xem chi tiết: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Cảm ơn và trân trọng
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Vui lòng không trả trả lời mail này.   
+#elseif($action=='reject')
+Dear $requester.fullName,<br/><br/>
+	Chi tiết thẻ (Rút gọn) có thông báo đã trả lại $approver.fullName<br/>
+	Vui lòng vào đường dẫn sau để xem chi tiết: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Cảm ơn và trân trọng
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Vui lòng không trả trả lời mail này.   
+#end
+</BODY>
+</HTML>

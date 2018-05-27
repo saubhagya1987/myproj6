@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="contract.repossession.view" extends="fe_credit">
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/contract-repossession-view.jsp" />
+	</definition>
+	
+	<definition name="contract.repossession.attachments" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/contract-repossession-attachments.jsp" />
+	</definition>
+	
+	<definition name="contract.repossession.detail.view" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/contract-repossession-detail-view.jsp" />
+	</definition>
+	
+	<definition name="contract.repossession.status.update" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/contract-repossession-status-update.jsp" />
+	</definition>
+	
+	<definition name="bidder.view" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/bidder-view.jsp" />
+	</definition>
+	
+	<definition name="bidder.status.update" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/bidder-status-update.jsp" />
+	</definition>
+	
+	<definition name="bidder.detail.view" extends="fe_credit">	
+			<put-attribute name="body"
+			value="/WEB-INF/views/repossession/bidder-detail-view.jsp" />
+	</definition>
+
+</tiles-definitions>

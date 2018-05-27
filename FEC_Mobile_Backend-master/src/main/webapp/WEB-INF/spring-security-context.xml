@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	 xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd
+	http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ 	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+	
+ 	<http pattern="/static/**" security="none"/>
+<!--  	<http pattern="/login" security="none"/> -->
+	<http auto-config="true" use-expressions="true">
+		<form-login login-page="/login" login-processing-url="/j_spring_security_check" authentication-failure-url="/login?error=true" 
+			authentication-failure-handler-ref="loginFailureHandler" 
+			authentication-success-handler-ref="loginSuccessHandler" 
+			default-target-url="/home"
+			always-use-default-target="false" />
+			
+	<intercept-url pattern="/login" access="permitAll" />
+	<intercept-url pattern="/webservice/**" access="permitAll" />
+	<intercept-url pattern="/botdetectcaptcha/**" access="permitAll" />
+	<intercept-url pattern="/ajax/**" access="permitAll" />
+	<intercept-url pattern="/exportApplyNow" access="permitAll" />
+	<intercept-url pattern="/accessDenied" access="hasRole('ROLE_GUEST') or isAuthenticated()" />
+	<!-- <intercept-url pattern="/**" access="hasRole('ROLE_AUTHED')" /> -->
+	<intercept-url pattern="/system/**" access="hasAnyRole('R001')" />
+	<!-- <intercept-url pattern="/master_data/**" access="hasAnyRole('R001','R002','R006','R007','R008','R012','R016','R017')" /> -->
+	<intercept-url pattern="/master_data/**" access="hasAnyRole('R001','R002','R006','R007','R008','R012','DOC','HOP')" />
+	<intercept-url pattern="/master_data/customer/**" access="hasAnyRole('R001','R002')" />
+	<intercept-url pattern="/master_data/hobby/**" access="hasAnyRole('R001','R002','R012')" />
+	<intercept-url pattern="/message/**" access="hasAnyRole('R001','R003','R013')" />
+	<intercept-url pattern="/apply_now/**" access="hasAnyRole('R001','R005')" />
+	<intercept-url pattern="/loan/**" access="hasAnyRole('R001','R005','R014','R015')" />
+	<!-- <intercept-url pattern="/contract/**" access="hasAnyRole('R001','R004')" /> -->
+	<intercept-url pattern="/master_data/banner/**" access="hasAnyRole('R001','R006')" />
+	<intercept-url pattern="/master_data/branch/**" access="hasAnyRole('R001','R007')" />
+	<intercept-url pattern="/master_data/pos/**" access="hasAnyRole('R001','R007')" />
+	<intercept-url pattern="/master_data/searchmap/**" access="hasAnyRole('R001','R007')" />
+	<intercept-url pattern="/master_data/cms/**" access="hasAnyRole('R001','R008')" />
+	<!-- <intercept-url pattern="/master_data/contact/**" access="hasAnyRole('R001','R016')" /> -->
+	<intercept-url pattern="/master_data/contact/**" access="hasAnyRole('R001','DOC')" />
+	<!-- <intercept-url pattern="/master_data/cms_category/**" access="hasAnyRole('R001','R017')" /> -->
+	<intercept-url pattern="/master_data/cms_category/**" access="hasAnyRole('R001','HOP')" />
+	<intercept-url pattern="/dashboard/**" access="hasAnyRole('R001','R009')" />
+	<intercept-url pattern="/system/**" access="hasAnyRole('R001')" />
+    <intercept-url pattern="/userProfile/edit**" access="hasRole('ROLE_AUTHED')" />
+    <intercept-url pattern="/contract/**" access="hasAnyRole('R001','R004','HOP','R008','DOC','UH','CRO','HOF','CA','CSA','FS')" /> 
+<!--     <intercept-url pattern="/contract/**" access="hasAnyRole('R001','R016','R017','R018','R019','FS','CA','R008','DOC','UH','CRO','HOF','CS*')" />  -->
+            
+   
+      
+        <access-denied-handler error-page="/accessDenied"/>
+        <logout logout-success-url="/" />
+        
+	</http>
+ 	<beans:bean id="webexpressionHandler"
+  			class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+  		<beans:bean id="loginSuccessHandler"
+  			class="vn.com.unit.fe_credit.security.LoginSuccessHandler" >
+  			<beans:property name="useReferer" value="true"/>
+  		</beans:bean>		
+		<beans:bean id="loginFailureHandler"
+  			class="vn.com.unit.fe_credit.security.LoginFailureHandler" >	
+  		</beans:bean>
+  
+    <beans:bean id="tdrUserDetailsContextMapper" class="vn.com.unit.fe_credit.security.UserDetailsContextMapperImpl"/>
+    
+	<beans:bean id="ldapActiveDirectoryAuthProvider"
+		class="org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider">
+		<beans:constructor-arg value="${ldap.domain}" />
+		<beans:constructor-arg value="${ldap.url}" />
+		<beans:property name="useAuthenticationRequestCredentials"
+			value="true" />
+		<beans:property name="userDetailsContextMapper" ref="tdrUserDetailsContextMapper" />
+		<beans:property name="convertSubErrorCodesToExceptions"
+			value="true" />
+	</beans:bean>
+	
+ 	<beans:bean id="customAuthenticationProvider" class="vn.com.unit.fe_credit.security.CustomAuthenticationProvider" />
+	
+	<authentication-manager>
+		<authentication-provider ref="customAuthenticationProvider" /> 
+		<!-- <authentication-provider ref="ldapActiveDirectoryAuthProvider"/>  -->
+	</authentication-manager>
+	
+	
+</beans:beans>

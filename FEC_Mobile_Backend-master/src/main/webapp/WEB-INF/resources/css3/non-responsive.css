@@ -1,0 +1,181 @@
+
+
+body {
+    padding-bottom: 30px;
+    padding-top: 80px;
+}
+body, .navbar-fixed-top, .navbar-fixed-bottom {
+    min-width: 1015px;
+}
+.lead {
+    font-size: 16px;
+}
+.page-header {
+    margin-bottom: 30px;
+}
+.page-header .lead {
+    margin-bottom: 10px;
+}
+.container {
+    max-width: none !important;
+    width: 1015px;
+}
+
+.container .navbar-header, .container .navbar-collapse {
+    margin-left: 0;
+    margin-right: 0;
+}
+.navbar-header {
+    float: left;
+}
+.navbar-collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 0;
+    visibility: visible !important;
+}
+.navbar-toggle {
+    display: none;
+}
+.navbar-collapse {
+    border-top: 0 none;
+}
+.navbar-brand {
+    margin-left: -15px;
+}
+.navbar-nav {
+    float: left;
+    margin: 0;
+}
+.navbar-nav > li {
+    float: left;
+}
+.navbar-nav > li > a {
+    padding: 15px;
+}
+.navbar-nav.navbar-right {
+    float: right;
+}
+.navbar .navbar-nav .open .dropdown-menu {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #004a8f;
+    border-color: rgba(0, 0, 0, 0.15);
+    border-image: none;
+    border-radius: 0 0 4px 4px;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    float: left;
+    position: absolute;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar .navbar-nav .open .dropdown-menu > li > a:focus, .navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    background-color: #428bca !important;
+    color: #fff !important;
+}
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    background-color: transparent !important;
+    color: #999 !important;
+}
+.navbar-form {
+    border: 0 none;
+    box-shadow: none;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: auto;
+}
+.navbar-form .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.navbar-form .form-control {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+}
+.navbar-form .form-control-static {
+    display: inline-block;
+}
+.navbar-form .input-group {
+    display: inline-table;
+    vertical-align: middle;
+}
+.navbar-form .input-group .input-group-addon, .navbar-form .input-group .input-group-btn, .navbar-form .input-group .form-control {
+    width: auto;
+}
+.navbar-form .input-group > .form-control {
+    width: 100%;
+}
+.navbar-form .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.navbar-form .radio, .navbar-form .checkbox {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+}
+.navbar-form .radio label, .navbar-form .checkbox label {
+    padding-left: 0;
+}
+.navbar-form .radio input[type="radio"], .navbar-form .checkbox input[type="checkbox"] {
+    margin-left: 0;
+    position: relative;
+}
+.navbar-form .has-feedback .form-control-feedback {
+    top: 0;
+}
+.form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.form-inline .form-control {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+}
+.form-inline .form-control-static {
+    display: inline-block;
+}
+.form-inline .input-group {
+    display: inline-table;
+    vertical-align: middle;
+}
+.form-inline .input-group .input-group-addon, .form-inline .input-group .input-group-btn, .form-inline .input-group .form-control {
+    width: auto;
+}
+.form-inline .input-group > .form-control {
+    width: 100%;
+}
+.form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.form-inline .radio, .form-inline .checkbox {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+}
+.form-inline .radio label, .form-inline .checkbox label {
+    padding-left: 0;
+}
+.form-inline .radio input[type="radio"], .form-inline .checkbox input[type="checkbox"] {
+    margin-left: 0;
+    position: relative;
+}
+.form-inline .has-feedback .form-control-feedback {
+    top: 0;
+}

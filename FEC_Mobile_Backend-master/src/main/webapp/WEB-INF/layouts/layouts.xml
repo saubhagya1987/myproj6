@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+ 
+  <definition name="default" template="/WEB-INF/layouts/default.jsp">
+  </definition>
+  <definition name="default_frond_end" template="/WEB-INF/layouts/default_frond_end.jsp" />
+  <definition name="access.denied" extends="default">
+  		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+  		  <put-attribute name="body" value="/WEB-INF/views/access_denied.jsp"/>
+  		 <put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+  </definition>
+  <definition name="backdoor" extends="default">
+  		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+  		  <put-attribute name="body" value="/WEB-INF/views/backdoor.jsp"/>
+  		 <put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+  </definition>
+  <definition name="fe_credit" extends="default">
+  	<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+  </definition>
+  <definition name="fe_credit_frond_end" extends="default_frond_end">
+  	<put-attribute name="menu" value="/WEB-INF/layouts/menu_frond_end.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/layouts/footer_frond_end.jsp"/>
+  </definition>
+
+  
+   <definition name="login" template="/WEB-INF/views/login.jsp">
+  	
+  </definition>	
+  
+  <definition name="ajax.home" template="/WEB-INF/layouts/ajaxhome.jsp">
+    <put-attribute name="body" value="/WEB-INF/layouts/ajaxbody.jsp"/>
+    <put-attribute name="aa" value="/WEB-INF/layouts/ajaxbody1.jsp"/>
+
+</definition>
+<definition name="ajax.layout" template="/WEB-INF/layouts/ajaxlayout.jsp">
+</definition>
+<definition name="printer" template="/WEB-INF/layouts/printer.jsp">
+</definition>
+
+
+  
+</tiles-definitions>

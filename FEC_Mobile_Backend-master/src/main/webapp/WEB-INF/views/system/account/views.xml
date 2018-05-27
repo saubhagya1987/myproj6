@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="system.account.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/account/AccountList.jsp" />
+  </definition>
+  <definition name="system.account.view" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/account/AccountView.jsp" />
+  </definition>
+   <definition name="system.account.approvalinfo" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/account/ApprovalInfo.jsp" />
+  </definition>
+  <!-- edit -->
+  <definition name="system.account.edit.template" template="/WEB-INF/views/system/account/AccountEdit.jsp">
+	  <put-attribute name="approvalinfo" value="/WEB-INF/views/system/account/ApprovalInfo.jsp" />
+  </definition>
+  <definition name="system.account.edit" extends="fe_credit">
+		<put-attribute name="body" value="system.account.edit.template"/>
+  </definition>
+  <!-- end edit -->
+  <definition name="system.account.edit.ajax" extends="ajax.layout">
+		<put-attribute name="body" value="system.account.edit.template"/>
+  </definition>
+   <definition name="system.account.sync.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/account/AccountSyncList.jsp" />
+  </definition>
+  <!-- Role  -->
+<!--     <definition name="system.account.role.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/account/RoleList.jsp" />
+  </definition>
+    <definition name="system.role.edit.template" template="/WEB-INF/views/system/account/RoleEdit.jsp">
+	  <put-attribute name="approvalinfo" value="/WEB-INF/views/system/account/ApprovalInfo.jsp" />
+  </definition>
+  <definition name="system.role.edit" extends="fe_credit">
+      <put-attribute name="body" value="system.role.edit.template"/>
+       </definition>
+       <definition name="system.role.edit.ajax" extends="ajax.layout">
+		<put-attribute name="body" value="system.role.edit.template"/>
+  </definition> -->
+</tiles-definitions>

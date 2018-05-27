@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="home" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+  </definition>
+  <definition name="user.edit" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/UserProfileEdit.jsp" />
+  </definition>
+   <definition name="user.changepassword" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/ChangePassword.jsp" />
+  </definition>
+  <definition name="bootstrap3" template="/WEB-INF/layouts/bootstrap3.jsp">
+  </definition>
+  <definition name="index" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+  </definition>
+  
+</tiles-definitions>

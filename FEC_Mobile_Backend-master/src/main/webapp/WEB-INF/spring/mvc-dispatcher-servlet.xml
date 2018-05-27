@@ -1,0 +1,90 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd     
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<context:annotation-config />
+	<mvc:annotation-driven validator="validator" />
+	<context:component-scan base-package="vn.com.unit.fe_credit.controller" />
+
+
+	<mvc:resources mapping="/static/**" location="/WEB-INF/resources/" />
+	<mvc:resources mapping="/temp_folder/**" location="/WEB-INF/temp_folder/" />
+	<mvc:default-servlet-handler />
+	<security:global-method-security pre-post-annotations="enabled" />
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<mvc:interceptors>
+		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+		<!-- <mvc:interceptor> <mvc:mapping path="/transaction/transfer/info"></mvc:mapping> <bean class="vn.com.unit.interceptor.TransferInterceptor"> </bean> 
+			</mvc:interceptor> -->
+	</mvc:interceptors>
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+					<property name="viewClass">
+						<value>
+							org.springframework.web.servlet.view.tiles2.TilesView
+						</value>
+					</property>
+				</bean>
+				<bean class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
+					<property name="viewClass" value="org.springframework.js.ajax.tiles2.AjaxTilesView" />
+				</bean>
+				<!-- support custom view object (pdf, csv ...) -->
+				<!-- <bean class="org.springframework.web.servlet.view.XmlViewResolver" /> -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/layouts.xml</value>
+				<!-- Scan views directory for Tiles configurations -->
+				<value>/WEB-INF/views/**/views.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"> <property name="validationMessageSource" ref="messageSource" 
+		/> </bean> -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="messageInterpolator">
+			<bean class="org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator">
+				<constructor-arg index="0">
+					<bean class="org.springframework.validation.beanvalidation.MessageSourceResourceBundleLocator">
+						<constructor-arg index="0" ref="messageSource" />
+					</bean>
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="localeResolver" class="vn.com.unit.utils.I18nLocaleResolver">
+		<property name="defaultLocale" value="#{systemConfig.configMap[systemConfig.LANGUAGE_DEFAULT]}" />
+	</bean>
+
+
+	<!-- Init binding all controller -->
+	<!-- <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer"> <property name="customEditors"><map> <entry key="java.lang.String"> 
+		<bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor"> <constructor-arg index="0" value= "true"/> </bean> </entry> </map></property> 
+		</bean> -->
+
+</beans>

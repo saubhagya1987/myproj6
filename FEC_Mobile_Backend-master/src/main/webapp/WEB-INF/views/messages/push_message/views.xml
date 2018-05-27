@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+  <definition name="push.message.import" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/messages/push_message/PushMessageImport.jsp" />
+  </definition>
+  
+   <definition name="push.message.list.template" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/messages/push_message/PushMessageListTemplate.jsp" />
+  </definition>
+  
+  <definition name="push.message.list.template.edit" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/messages/push_message/PushMessageListTemplateEdit.jsp" />
+  </definition>
+  
+</tiles-definitions>

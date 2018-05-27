@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="system.team.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/team/TeamList.jsp" />
+  </definition>
+  <definition name="system.team.edit" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/team/TeamEdit.jsp" />
+  </definition>
+  <definition name="system.team.view" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/team/TeamView.jsp" />
+  </definition>
+</tiles-definitions>

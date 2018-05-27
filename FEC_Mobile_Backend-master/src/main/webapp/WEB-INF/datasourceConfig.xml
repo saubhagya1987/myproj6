@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	">
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value></value>
+				<value>classpath:configure.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" primary="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" primary="true">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		
+<!-- 		<property name="url" value="jdbc:oracle:thin:@db-uat58.deltavn.vn:1521/mbfdev" />
+		<property name="username" value="MBFDEVDBA" />
+		<property name="password" value="mbfdevdba#2015Oct" /> -->
+		<property name="url" value="jdbc:oracle:thin:@180.151.74.42:1521/CMS" />
+		<property name="username" value="MBFDEVDBA" />
+		<property name="password" value="Admin123" />
+
+	</bean>
+
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="jdbc/fe_credit_Datasource"/> -->
+	<!-- <jee:jndi-lookup id="dataSource" jndi-name="java:/fe_credit_Datasource"/> -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" primary="true">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="vn.com.unit.fe_credit.entity" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- <prop key="hibernate.default_schema">${database.default.schema}</prop> -->
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	
+	<!-- Datasource configuration for FECOLLECTION database -->
+	
+	<bean id="txnManagerCollections" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactoryCollections" />
+	</bean>
+
+	<bean id="dataSourceCollections" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@180.151.74.42:1521/FECOLLECTION" />
+		<property name="username" value="MBFDEVDBA" />
+		<property name="password" value="Admin123" />
+<!-- 			<property name="url" value="jdbc:oracle:thin:@db-uat58.deltavn.vn:1521/FECOLLECTION" />
+		<property name="username" value="mbfdevdba" />
+		<property name="password" value="mbfdevdba#Techm" /> -->
+	</bean>
+
+	<bean id="sessionFactoryCollections" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceCollections" />
+		<property name="packagesToScan" value="vn.com.unit.fe_credit.entity.collection" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">none</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.format_sql">none</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

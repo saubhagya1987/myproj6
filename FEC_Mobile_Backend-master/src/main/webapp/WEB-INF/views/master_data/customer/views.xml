@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	<definition name="master_data.customer.list" extends="fe_credit">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/customer/CustomerList.jsp" />
+	</definition>
+	<definition name="master_data.customer.edit" extends="ajax.layout">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/customer/CustomerEdit.jsp" />
+	</definition>
+
+	<definition name="master_data.customer.view" extends="fe_credit">
+		<put-attribute name="body" value="master_data.customer.view.template"></put-attribute>
+	</definition>
+
+	<definition name="master_data.customer.view.template" template="/WEB-INF/views/master_data/customer/CustomerView.jsp">
+	</definition>
+
+	<definition name="DEF.MGM.ListFriend" extends="ajax.layout">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/customer/CustomerMGM-ListFriends.jsp" />
+	</definition>
+
+	<definition name="DEF.MGM.PointConversationHistory" extends="ajax.layout">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/customer/CustomerMGM-PointConversationHistory.jsp" />
+	</definition>
+
+	<definition name="master_data.customer.view.template.MGM" template="/WEB-INF/views/master_data/customer/CustomerMGM.jsp">
+		<put-attribute name="MGM.ViewPoint" value="/WEB-INF/views/master_data/customer/CustomerMGM-ViewPoint.jsp" />
+		<put-attribute name="MGM.ListFriends" value="DEF.MGM.ListFriend" />
+		<put-attribute name="MGM.PointConversationHistory" value="DEF.MGM.PointConversationHistory" />
+	</definition>
+
+
+
+
+	<definition name="master_data.customer.import" extends="fe_credit">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/customer/CustomerImport.jsp" />
+	</definition>
+</tiles-definitions>

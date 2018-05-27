@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="master_data.cms.edit" extends="fe_credit">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/cms/CmsEdit.jsp" />
+	</definition>
+	<definition name="master_data.cms.list" extends="fe_credit">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/cms/CmsList.jsp" />
+	</definition>
+	<definition name="master_data.cms.view" extends="fe_credit">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/cms/CmsView.jsp" />
+	</definition>
+
+	<definition name="master_data.cms.edit.pushMessagePopup" extends="ajax.layout">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/cms/CMSPushMessagePopup.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,16 @@
+<HTML>
+<BODY>
+Dear $approver.fullName,<br/><br/>
+	The user wants to register card, you have to contact for advice.<br/>
+	Please click link to view: <a href="$URL">$URL</a>
+	<br/>
+	<br/>
+Thanks & best regards
+<br/>
+[CARD_VCCB]
+<br/>
+<br/>             
+Note: Please don't reply this email.
+</BODY>
+</HTML>
+

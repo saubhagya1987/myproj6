@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan
+		base-package="vn.com.unit.fe_credit.service, vn.com.unit.fe_credit.dao, vn.com.unit.fe_credit.config, vn.com.unit.fe_credit.bean, vn.com.unit.birt.integration, vn.com.unit.fe_credit.listener.integration
+		,vn.com.unit.fe_credit.utils" />
+
+	<bean id="localeResolver" class="vn.com.unit.utils.I18nLocaleResolver">
+		<property name="defaultLocale" value="vi" />
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:messages</value>
+			</list>
+		</property>
+		<property name="fallbackToSystemLocale" value="false"></property>
+	</bean>
+	<bean id="gson" class="com.google.gson.Gson" />
+	<context:annotation-config />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven transaction-manager="txnManagerCollections" />
+	<import resource="/datasourceConfig.xml" />
+	<!-- <import resource="/mvc-dispatcher-servlet.xml"/> -->
+	<!-- <import resource="/spring-security.xml"/> -->
+	<!-- <import resource="/ssoContext.xml"/> -->
+	<import resource="/spring-security-context.xml" />
+	<import resource="/mailContext.xml" />
+	<import resource="/spring-quartz.xml" />
+	<!-- Async -->
+	<task:annotation-driven />
+</beans>

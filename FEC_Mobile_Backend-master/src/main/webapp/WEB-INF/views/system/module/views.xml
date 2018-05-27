@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name="system.module.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/module/ModuleList.jsp" />
+  </definition>
+  <!-- edit Role-->
+    <definition name="system.module.edit.template" template="/WEB-INF/views/system/module/ModuleEdit.jsp">
+	  <put-attribute name="approvalinfo" value="/WEB-INF/views/system/module/ApprovalInfo.jsp" />
+  </definition>
+  <definition name="system.module.edit" extends="fe_credit">
+      <put-attribute name="body" value="system.module.edit.template"/>
+   </definition>
+   <definition name="system.module.edit.ajax" extends="ajax.layout">
+	 <put-attribute name="body" value="system.module.edit.template"/>
+  </definition>
+</tiles-definitions>

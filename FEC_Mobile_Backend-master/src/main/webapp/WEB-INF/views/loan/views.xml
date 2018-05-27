@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="loan.edit" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanEdit.jsp" />
+  </definition>
+  <definition name="loan.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanList.jsp" />
+  </definition>
+  <definition name="loan.addLoan" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanEdit.jsp" />     
+  </definition>
+    <definition name="loan.showInfo" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanListInfo.jsp" />
+  </definition>
+  
+  <definition name="loandetail.edit" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanDetailEdit.jsp" />
+  </definition>
+  <definition name="loandetail.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanDetailList.jsp" />
+  </definition>
+  <definition name="loandetail.addLoanDetail" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanDetailEdit.jsp" />     
+  </definition>
+  <definition name="loandetail.showInfo" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/loan/LoanDetailListInfo.jsp" />
+  </definition>
+
+  
+</tiles-definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="system.user.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/user/UserList.jsp" />
+  </definition>
+  <definition name="system.user.error.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/user/ErrorUserList.jsp" />
+  </definition>
+  <definition name="system.user.view" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/user/UserView.jsp" />
+  </definition>
+   <definition name="system.user.approvalinfo" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/user/ApprovalInfo.jsp" />
+  </definition>
+  <!-- edit -->
+  <definition name="system.user.edit.template" template="/WEB-INF/views/system/user/UserEdit.jsp">
+	  <put-attribute name="approvalinfo" value="/WEB-INF/views/system/account/ApprovalInfo.jsp" />
+  </definition>
+  <definition name="system.user.edit" extends="fe_credit">
+		<put-attribute name="body" value="system.user.edit.template"/>
+  </definition>
+  <!-- end edit -->
+  <definition name="system.user.edit.ajax" extends="ajax.layout">
+		<put-attribute name="body" value="system.user.edit.template"/>
+  </definition>
+   <definition name="system.user.sync.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/user/UserSyncList.jsp" />
+  </definition>
+</tiles-definitions>

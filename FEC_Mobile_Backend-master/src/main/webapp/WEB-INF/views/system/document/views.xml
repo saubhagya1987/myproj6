@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+  <definition name="ajax.document.upload" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/DocumentInfoEdit.jsp" />
+  </definition>
+  <definition name="ajax.document.uploadview" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/DocumentInfoView.jsp" />
+  </definition>
+  <definition name="ajax.document.list" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentList.jsp" />
+  </definition>
+  <definition name="transaction.document.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchList.jsp" />
+  </definition>
+  <definition name="transaction.document.detail.view" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchView.jsp" />
+  </definition>
+  <definition name="transaction.document.filter.view" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchFilterView.jsp" />
+  </definition>
+  <definition name="transaction.document.search.view" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchFilterView.jsp" />
+  </definition>
+  <definition name="transaction.document.add.folder" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchAddFolder.jsp" />
+  </definition>
+  <definition name="transaction.document.choose.folder" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchChooseFolder.jsp" />
+  </definition>
+   <definition name="transaction.document.repository.tree" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/nodeRepositoryTree.jsp" />
+  </definition>
+   <definition name="transaction.document.folder.tree" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/nodeFolderTree.jsp" />
+  </definition>
+  <definition name="transaction.document.choose.folder" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/system/document/documentSearchChooseFolder.jsp" />
+  </definition>
+</tiles-definitions>

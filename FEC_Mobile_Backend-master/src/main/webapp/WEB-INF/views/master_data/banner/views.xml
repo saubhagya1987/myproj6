@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+  <definition name="master_data.banner.list" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/master_data/banner/BannerList.jsp" />
+  </definition>
+   <definition name="master_data.banner.image.list" extends="ajax.layout">
+    <put-attribute name="body" value="/WEB-INF/views/master_data/banner/ViewImagePopup.jsp" />
+  </definition>
+   <definition name="master_data.banner.edit" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/master_data/banner/BannerEdit.jsp" />
+  </definition>
+  <definition name="master_data.banner.view" extends="fe_credit">
+    <put-attribute name="body" value="/WEB-INF/views/master_data/banner/BannerView.jsp" />
+  </definition>
+  <definition name="master_data.banner.image.show" extends="ajax.layout">
+	<put-attribute name="body" value="/WEB-INF/views/master_data/banner/ViewImage.jsp" />
+  </definition>
+  <definition name="master_data.banner.image.show.view" extends="ajax.layout">
+	<put-attribute name="body" value="/WEB-INF/views/master_data/banner/ViewViewImage.jsp" />
+  </definition>
+   <definition name="master_data.banner.popupslideshow" extends="ajax.layout">
+		<put-attribute name="body" value="/WEB-INF/views/master_data/banner/PopupSlideshow.jsp" />
+  	</definition>
+</tiles-definitions>

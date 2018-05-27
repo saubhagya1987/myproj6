@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+	<!-- A time/date based rolling appender -->
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+		<!-- org.jboss.logging.util.OnlyOnceErrorHandler -->
+		<errorHandler class="org.apache.log4j.helpers.OnlyOnceErrorHandler" />
+		<param name="File" value="${jboss.server.log.dir}/fe_credit.log" />
+		<param name="File" value="/var/upload/Logs/fe_credit.log" />
+		<param name="Append" value="true" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<!-- Rollover at midnight each day -->
+		<!-- <param name="DatePattern" value="'.'yyyy-MM-dd"/> -->
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- [%c{1}] only show class name -->
+			<param name="ConversionPattern" value="%d %-5p [%c{1}] (%t) %m%n" />
+
+			<!-- The default pattern: Date Priority [Category] (Thread) Message\n -->
+			<!-- <param name="ConversionPattern" value="%d %-5p [%c] (%t) %m%n"/> -->
+
+			<!-- The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n -->
+			<!-- <param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x) %m%n"/> -->
+		</layout>
+	</appender>
+
+	<category name="vn.com.unit">
+		<!-- <priority value="DEBUG"/> -->
+		<priority value="DEBUG" />
+	</category>
+
+	<category name="org.hibernate">
+		<priority value="INFO" />
+		<!-- <priority value="OFF" /> -->
+	</category>
+
+	<category name="org.jboss.seam">
+		<priority value="OFF" />
+	</category>
+
+	<root>
+		<!-- <priority value="DEBUG" /> -->
+		<priority value="DEBUG" />
+		<appender-ref ref="file" />
+	</root>
+
+</log4j:configuration>

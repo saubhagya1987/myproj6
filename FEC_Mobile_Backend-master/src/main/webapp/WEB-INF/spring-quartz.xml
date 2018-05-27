@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+  http://www.springframework.org/schema/task
+ http://www.springframework.org/schema/task/spring-task.xsd
+">
+
+
+
+	<bean id="firstJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="vn.com.unit.fe_credit.scheduler.FirstJob" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="firstTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="firstJobDetail" />
+		<property name="cronExpression" value="0 0/1 * 1/1 * ? *" />
+	</bean>
+	<bean id="recordJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="vn.com.unit.fe_credit.scheduler.RecordJob" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="recordTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="recordJobDetail" />
+		<property name="cronExpression" value="${record.crone.timer}" />
+	</bean>
+
+
+
+
+	<bean id="checkInJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="vn.com.unit.fe_credit.scheduler.CheckInJob" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="checkInTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="checkInJobDetail" />
+		<property name="cronExpression" value="${checkin.crone.timer}" />
+	</bean>
+
+	<bean id="deleteDocumentJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.DeleteDocumentTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="deleteDocumentTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="deleteDocumentJobDetail" />
+		<property name="cronExpression" value="0 00 23 * * ?" />
+	</bean>
+
+	<bean id="sendMessagerJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.SendMessagerTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="sendMessagerTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="sendMessagerJobDetail" />
+		<property name="cronExpression" value="0 0/20 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="sentMessageWhenFriendBecomeLoanJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.SentMessageWhenFriendBecomeLoanTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="sentMessageWhenFriendBecomeLoanTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="sentMessageWhenFriendBecomeLoanJobDetail" />
+		<property name="cronExpression" value="0 0/5 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="sentMessageNoticeRedeemResultJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.SentMessageNoticeRedeemResultTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="sentMessageNoticeRedeemResultTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="sentMessageNoticeRedeemResultJobDetail" />
+		<property name="cronExpression" value="0 0/5 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="saveLocationJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.SaveLatitudeLongitude" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="saveLocationTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="saveLocationJobDetail" />
+		<property name="cronExpression" value="0 0/30 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="uploadApplyNowJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.ExportApplyNow" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="uploadApplyNowTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="uploadApplyNowJobDetail" />
+		<property name="cronExpression" value="0 0/10 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="exportMGMJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.ExportMGMTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="exportMGMTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="exportMGMJobDetail" />
+		<property name="cronExpression" value="0 0/20 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="pushMessageFollowScheduleJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.PushMessageFollowScheduleTask" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="pushMessageFollowScheduleTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="pushMessageFollowScheduleJobDetail" />
+		<property name="cronExpression" value="0 0/1 * 1/1 * ? *" />
+	</bean>
+
+	<bean id="deleteCustomerJobDetail"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass"
+			value="vn.com.unit.fe_credit.scheduler.DeleteCustomer10Day" />
+		<property name="durability" value="true" />
+	</bean>
+	<bean id="deleteCustomerTrigger" class="vn.com.unit.quartz.PersistableCronTriggerFactoryBean">
+		<property name="jobDetail" ref="deleteCustomerJobDetail" />
+		<property name="cronExpression" value="0 0 12 1/1 * ? *" />
+	</bean>
+
+	<bean name="schedulerFactoryBeanFireAll" id="schedulerFactoryBeanFireAll"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+
+		<property name="schedulerName" value="FEC_PRO_SCHEDULER_FIRE_ALL" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="jobFactory">
+			<bean class="vn.com.unit.quartz.AutowiringSpringBeanJobFactory" />
+		</property>
+		<property name="jobDetails">
+			<list>
+				<ref bean="firstJobDetail" />
+				<!-- <ref bean="recordJobDetail" /> -->
+				<!-- <ref bean="checkInJobDetail" /> -->
+				<!-- <ref bean="uploadApplyNowJobDetail" /> -->
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="firstTrigger" />
+				<!-- <ref bean="recordTrigger" /> -->
+				<!-- <ref bean="checkInTrigger" /> -->
+				<!-- <ref bean="uploadApplyNowTrigger" /> -->
+			</list>
+		</property>
+
+	</bean>
+
+	<bean name="schedulerFactoryBeanCluster" id="schedulerFactoryBeanCluster"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="autoStartup" value="true" />
+		<property name="startupDelay" value="60" />
+		<property name="waitForJobsToCompleteOnShutdown" value="true" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="schedulerName" value="FEC_PRO_SCHEDULER" />
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="jobFactory">
+			<bean class="vn.com.unit.quartz.AutowiringSpringBeanJobFactory" />
+		</property>
+
+		<property name="jobDetails">
+			<!-- DD Add Job Name here -->
+			<list>
+				<ref bean="uploadApplyNowJobDetail" />
+				<ref bean="sendMessagerJobDetail" />
+				<ref bean="sentMessageWhenFriendBecomeLoanJobDetail" />
+				<ref bean="sentMessageNoticeRedeemResultJobDetail" />
+				<ref bean="saveLocationJobDetail" />
+				<ref bean="exportMGMJobDetail" />
+				<ref bean="pushMessageFollowScheduleJobDetail" />
+				<ref bean="deleteCustomerJobDetail" />				
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<!-- DD Trigger Name missing here -->
+				<ref bean="uploadApplyNowTrigger" />
+				<ref bean="sendMessagerTrigger" />
+				<ref bean="sentMessageWhenFriendBecomeLoanTrigger" />
+				<ref bean="sentMessageNoticeRedeemResultTrigger" />
+				<ref bean="saveLocationTrigger" />
+				<ref bean="exportMGMTrigger" />
+				<ref bean="pushMessageFollowScheduleTrigger" />
+				<ref bean="deleteCustomerTrigger" />				
+			</list>
+		</property>
+
+	</bean>
+
+	<beans profile="scheduled">
+		<!-- <bean id="recordJobDetailTestTest"
+			class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+			<property name="jobClass" value="vn.com.unit.fe_credit.scheduler.RecordJob" />
+			<property name="durability" value="true" />
+		</bean>
+		<task:scheduled-tasks>
+			<task:scheduled ref="recordJobDetailTestTest" method="execute"
+				cron="0 0/1 * 1/1 * ? *" />
+		</task:scheduled-tasks> -->
+		
+		<bean name="schedulerFactoryBeanFireAlldd" id="schedulerFactoryBeanFireAlldd"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+
+		<property name="schedulerName" value="FEC_PRO_SCHEDULER_FIRE_ALL" />
+		<property name="applicationContextSchedulerContextKey" value="applicationContext" />
+		<property name="jobFactory">
+			<bean class="vn.com.unit.quartz.AutowiringSpringBeanJobFactory" />
+		</property>
+		<property name="jobDetails">
+			<list>
+				 <ref bean="recordJobDetail" />
+				 <ref bean="checkInJobDetail" />
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="recordTrigger" /> 
+				<ref bean="checkInTrigger" />
+			</list>
+		</property>
+
+	</bean>
+	</beans>
+
+</beans>  
